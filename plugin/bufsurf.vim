@@ -30,6 +30,7 @@ let s:disabled = 0
 " Open the previous buffer in the navigation history for the current window.
 function s:BufSurfBack()
     if w:history_index > 0
+        execute "bd " . w:history[w:history_index]
         let w:history_index -= 1
         let s:disabled = 1
         execute "b " . w:history[w:history_index]
